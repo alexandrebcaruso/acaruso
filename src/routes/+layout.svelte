@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '../app.css';
-
-	let { children } = $props();
+  export let data;
 </script>
 
-{@render children()}
+<main class="min-h-screen flex items-center justify-center flex-col">
+  <slot />
+</main>

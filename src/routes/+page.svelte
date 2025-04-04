@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  export let data;
+</script>
+
+<div class="text-center">
+  <h1 class="text-4xl font-bold">Welcome to ΛCaruso</h1>
+  <p class="text-xl">Agência Caruso</p>
+  <!-- Add more hardcoded data here -->
+</div>
