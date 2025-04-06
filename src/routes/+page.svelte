@@ -1,27 +1,32 @@
-<script>
-export let data;
-</script>
-
-<main>
-<h1>Bem-vindo à Agência de Publicidade Digital e Soluções Inteligentes</h1>
-<p>
-    Somos uma agência especializada em publicidade digital e soluções inteligentes, utilizando a tecnologia da inteligência artificial para revolucionar o marketing de nossos clientes em Osório, Rio Grande do Sul.
-</p>
-<h2>Nossas Especialidades</h2>
-<ul>
-    <li><strong>Campanhas de Publicidade Digital:</strong> Estratégias de marketing online para aumentar a visibilidade e o alcance do seu negócio.</li>
-    <li><strong>Soluções Inteligentes:</strong> Utilização de IA para otimizar processos e aumentar a eficiência operacional.</li>
-    <li><strong>Marketing de Conteúdo:</strong> Criação de conteúdo relevante e atraente para atrair e reter seu público-alvo.</li>
-</ul>
-<h2>Por que Escolher Nossa Agência?</h2>
-<ul>
-    <li><strong>Experiência:</strong> Mais de 10 anos de experiência no mercado de publicidade digital.</li>
-    <li><strong>Inovação:</strong> Utilizamos as últimas tecnologias e tendências para oferecer soluções personalizadas.</li>
-    <li><strong>Resultados Garantidos:</strong> Nosso objetivo é ajudar seus negócios a crescer e se destacar no mercado.</li>
-</ul>
-<h2>Entre em Contato Conosco</h2>
-<p>
-    Se você está procurando uma agência de publicidade digital e soluções inteligentes em Osório, entre em contato conosco hoje mesmo. Estamos ansiosos para ajudar seu negócio a alcançar novos patamares.
-</p>
-<a href="/contato" class="cta-button">Entre em Contato</a>
-</main>
+<script lang="ts">
+    export let data;
+  </script>
+  
+  <div class="bg-blue-50 py-20">
+    <section class="container mx-auto text-center px-4">
+      <h1 class="text-4xl font-bold mb-6">Soluções Digitais para Empresas de Osório</h1>
+      <p class="text-xl mb-8">Marketing Estratégico • Design Profissional • Automação com IA</p>
+      <a href="/contato" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700">Consulta Grátis</a>
+    </section>
+  
+    <!-- Seção Serviços -->
+    <section class="container mx-auto mt-20">
+      <h2 class="text-3xl font-bold text-center mb-12">Nossas Especialidades</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-4">🎯 Marketing Digital</h3>
+          <p class="mb-4">Domine o Google e redes sociais na região da Costa Doce</p>
+          <a href="/servicos/marketing" class="text-blue-600">Saiba mais →</a>
+        </div>
+        <!-- Repetir para Design e IA -->
+      </div>
+    </section>
+  
+    <!-- Seção Processo -->
+    <section class="container mx-auto mt-20">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold mb-8">Como Transformamos Negócios Locais</h2>
+        <a href="/processo" class="text-blue-600 underline">Veja nosso método →</a>
+      </div>
+    </section>
+  </div>

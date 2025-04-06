@@ -1,7 +1,8 @@
 <script lang="ts">
-  export let data;
+    import Chatbot from '$lib/Chatbot.svelte';
 </script>
 
 <main class="min-h-screen flex items-center justify-center flex-col">
-  <slot />
+    <slot />
+    <Chatbot />
 </main>
