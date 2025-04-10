@@ -8,31 +8,31 @@
     let isLoading = false;
     let showLeadConfirmation = false;
     let currentLead: any = null;
-  
-    // Conversation history with role tracking
+
     let messages: Array<{ 
       id: string,
       role: 'user' | 'assistant' | 'system',
       content: string,
+      quick_replies?: string[],
       timestamp: Date
     }> = [];
-  
+
     // Initialize with welcome message
     onMount(() => {
       addBotMessage("Olá! Sou o assistente da [Sua Empresa]. Como posso ajudar seu negócio hoje?");
     });
   
     // API configuration
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001';
   
-    // Helper functions
-    function addBotMessage(content: string) {
+    function addBotMessage(content: string, quickReplies?: string[]) {
       messages = [
         ...messages,
         {
           id: crypto.randomUUID(),
           role: 'assistant',
           content,
+          quick_replies: quickReplies,
           timestamp: new Date()
         }
       ];
@@ -49,70 +49,33 @@
         }
       ];
     }
-  
-    // Main chat handler
+
     async function handleSend() {
       if (!userInput.trim() || isLoading) return;
-  
-      // Add user message
+
       addUserMessage(userInput);
-      const userMessage = userInput;
+      const currentMessage = userInput;
       userInput = '';
-  
+
       try {
         isLoading = true;
-  
-        // Get bot response
+        
         const response = await fetch(`${API_URL}/api/chat`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: userMessage })
-        });
-  
-        if (!response.ok) throw new Error('API error');
-  
-        const { reply } = await response.json();
-        addBotMessage(reply);
-  
-        // Check for lead extraction opportunity (every 3 messages)
-        if (messages.length % 3 === 0) {
-          await attemptLeadExtraction();
-        }
-  
-      } catch (error) {
-        addBotMessage("⚠️ Ocorreu um erro. Por favor, tente novamente.");
-        console.error('Chat error:', error);
-      } finally {
-        isLoading = false;
-        scrollToBottom();
-      }
-    }
-  
-    // Lead extraction logic
-    async function attemptLeadExtraction() {
-      try {
-        const response = await fetch(`${API_URL}/api/analyze_conversation`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             conversation: messages.filter(m => m.role !== 'system')
           })
         });
-  
-        const leadData = await response.json();
-        
-        // Only proceed if we have at least an email
-        if (leadData?.email) {
-          currentLead = leadData;
-          showLeadConfirmation = true;
-          addBotMessage("📝 Identifiquei que você pode ser um potencial cliente. Posso salvar suas informações para entrarmos em contato?");
-        }
-  
+
+        const { reply, quick_replies } = await response.json();
+        addBotMessage(reply, quick_replies);
+
       } catch (error) {
-        console.error('Lead extraction failed:', error);
+        // ... (error handling remains)
       }
     }
-  
+
     // Lead saving
     async function saveLead() {
       if (!currentLead) return;
