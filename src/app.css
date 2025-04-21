@@ -1,0 +1,28 @@
+<!-- src/routes/servicos/marketing/+page.svelte -->
+<script lang="ts">
+    export let data;
+</script>
+
+<main class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold mb-8">Marketing Digital para Osório</h1>
+
+    <div class="grid gap-8 md:grid-cols-2">
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">SEO Local</h2>
+            <ul class="space-y-3 list-disc pl-6">
+                <li>Otimização para buscas como "restaurante em Osório"</li>
+                <li>Gestão do Google Meu Negócio</li>
+                <li>Relatórios mensais de performance</li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">Mídias Sociais</h2>
+            <ul class="space-y-3 list-disc pl-6">
+                <li>Gestão de redes sociais</li>
+                <li>Criação de conteúdo localizado</li>
+                <li>Anúncios patrocinados</li>
+            </ul>
+        </div>
+    </div>
+</main>
