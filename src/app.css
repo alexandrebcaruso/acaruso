@@ -1,28 +1,95 @@
-<!-- src/routes/servicos/marketing/+page.svelte -->
-<script lang="ts">
-    export let data;
-</script>
+/* src/app.css */
+/* src/app.css */
+:root {
+    /* Cores principais (alinhadas ao seu logo) */
+    --primary-600: #a00;
+    /* Vermelho principal */
+    --primary-500: #d33;
+    /* Vermelho mais claro */
+    --primary-700: #800;
+    /* Vermelho mais escuro */
 
-<main class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold mb-8">Marketing Digital para Osório</h1>
+    /* Cores neutras */
+    --gray-900: #1a1a1a;
+    /* Texto escuro */
+    --gray-700: #4a4a4a;
+    --gray-300: #d1d1d1;
+    /* Bordas */
+    --gray-100: #f5f5f5;
+    /* Fundos claros */
 
-    <div class="grid gap-8 md:grid-cols-2">
-        <div class="bg-white p-8 rounded-xl shadow-lg">
-            <h2 class="text-2xl font-bold mb-4">SEO Local</h2>
-            <ul class="space-y-3 list-disc pl-6">
-                <li>Otimização para buscas como "restaurante em Osório"</li>
-                <li>Gestão do Google Meu Negócio</li>
-                <li>Relatórios mensais de performance</li>
-            </ul>
-        </div>
+    /* Cores semânticas (UIkit) */
+    --success: #32d296;
+    /* Verde */
+    --warning: #faa05a;
+    /* Laranja */
+    --danger: #f0506e;
+    /* Rosa */
+}
 
-        <div class="bg-white p-8 rounded-xl shadow-lg">
-            <h2 class="text-2xl font-bold mb-4">Mídias Sociais</h2>
-            <ul class="space-y-3 list-disc pl-6">
-                <li>Gestão de redes sociais</li>
-                <li>Criação de conteúdo localizado</li>
-                <li>Anúncios patrocinados</li>
-            </ul>
-        </div>
-    </div>
-</main>
+/* Sobrescritas do UIkit */
+.uk-light {
+    --primary-color: var(--primary-600);
+    --primary-hover-color: var(--primary-700);
+}
+
+/* Tipografia */
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--gray-900);
+}
+
+/* Container personalizado */
+.uk-container {
+    max-width: 1280px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Botões */
+.uk-button-primary {
+    background: var(--primary-600);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.uk-button-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(160, 0, 0, 0.2);
+}
+
+/* Cards */
+.uk-card {
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uk-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+.uk-section-secondary {
+    background: var(--gray-900);
+    color: white;
+}
+
+/* Helpers personalizados */
+.leading-tight {
+    line-height: 1.25;
+}
+
+.text-primary {
+    color: var(--primary-600);
+}
+
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
