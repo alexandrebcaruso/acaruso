@@ -5,17 +5,16 @@
 	export let containerSize = 500; // Tamanho do container SVG
 	export let logoScale = 0.8; // Escala do logo (0.8 = 80% do original)
 	export let colors = {
-		plan: '#3B82F6', // Azul
-		design: '#EC4899', // Rosa
-		develop: '#10B981', // Verde
-		text: '#1F2937' // Cinza escuro
+		plan: '#333',
+		design: '#333',
+		develop: '#333',
+		text: '#333' 
 	};
 
 	// Tamanho original do logo (80x129.44)
 	const baseLogoWidth = 80;
 	const baseLogoHeight = 129.44;
 
-	// Calcula posições
 	$: center = containerSize / 2;
 	$: circleRadius = containerSize * 0.33;
 	$: logoWidth = baseLogoWidth * logoScale;
@@ -31,7 +30,6 @@
 	viewBox={`0 0 ${containerSize} ${containerSize}`}
 	aria-label="Pilares da Agência Caruso"
 >
-	<!-- Círculos Intersecionados -->
 	<circle
 		cx={center - circleRadius * 0.5}
 		cy={center - circleRadius * 0.25}
@@ -60,12 +58,10 @@
         opacity="0.3"
 	/>
 
-	<!-- Logo Central (componente reutilizado) -->
 	<foreignObject x={logoX} y={logoY} width={logoWidth} height={logoHeight}>
 		<Logo width={logoWidth} color="#a00" className="triad-logo__lambda" />
 	</foreignObject>
 
-	<!-- Textos -->
 	<text
 		x={center - circleRadius * 0.5}
 		y={center - circleRadius * 0.25}
@@ -104,6 +100,6 @@
 		height: auto;
 	}
 	.triad-logo__lambda {
-		pointer-events: none; /* Permite interação com os círculos */
+		pointer-events: none;
 	}
 </style>

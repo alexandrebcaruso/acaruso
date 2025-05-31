@@ -1,9 +1,7 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
 	import LocalCTA from '$lib/components/LocalCTA.svelte';
-	import ServiceCard from '$lib/components/ServiceCard.svelte';
-	import { services } from '$lib/constants/services';
-	import TriadLogo from '$lib/components/TriadLogo.svelte';
+	import BannerImage from '$lib/assets/homepage-banner.jpeg';
 
 	export const load = () => {
 		return {
@@ -29,9 +27,20 @@
 		}
 	</script>
 </svelte:head>
-<div class="uk-section uk-section-large uk-background-primary uk-light">
+
+<style>
+	.banner-image {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		display: block;
+	}
+</style>
+
+<div class="uk-section uk-section-large uk-light">
+	<img src={BannerImage} alt="Homepage Banner" class="banner-image" />
 	<div class="uk-container uk-text-center">
-		<TriadLogo containerSize={500} logoScale={0.8} className="uk-margin-auto" />
+
 		<h1 class="uk-heading-large uk-margin-remove-top">
 			Soluções Digitais <span class="text-primary">para Osório</span>
 		</h1>

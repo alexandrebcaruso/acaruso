@@ -11,16 +11,33 @@
 	import { onMount } from 'svelte';
   
 	onMount(() => {
-	  UIkit.use(Icons); // Ativa ícones
+	  	UIkit.use(Icons);
 	});
 </script>
+
 <svelte:head>
-	<!-- Metadados padrão -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="canonical" href="https://acaruso.com.br" />
+	<link rel="canonical" href="https://www.acaruso.com.br" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preload" as="style" href="uikit/dist/css/uikit.min.css">
 </svelte:head>
 
-<Header />
-<slot /> <!-- Páginas serão injetadas aqui -->
-<Footer />
-<Chatbot />
+<style>
+    .layout {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .main-content {
+        flex: 1;
+    }
+</style>
+
+<div class="layout">
+	<div class="main-content">
+		<Header />
+		<slot />
+	</div>
+	<Footer />
+	<Chatbot />
+</div>

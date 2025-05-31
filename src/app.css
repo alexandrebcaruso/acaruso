@@ -1,5 +1,4 @@
 /* src/app.css */
-/* src/app.css */
 :root {
     /* Cores principais (alinhadas ao seu logo) */
     --primary-600: #a00;
@@ -27,26 +26,22 @@
     /* Rosa */
 }
 
-/* Sobrescritas do UIkit */
 .uk-light {
     --primary-color: var(--primary-600);
     --primary-hover-color: var(--primary-700);
 }
 
-/* Tipografia */
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     color: var(--gray-900);
 }
 
-/* Container personalizado */
 .uk-container {
     max-width: 1280px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-/* Botões */
 .uk-button-primary {
     background: var(--primary-600);
     transition: transform 0.2s, box-shadow 0.2s;
@@ -58,7 +53,6 @@ body {
     box-shadow: 0 4px 12px rgba(160, 0, 0, 0.2);
 }
 
-/* Cards */
 .uk-card {
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -69,19 +63,16 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar */
 .uk-navbar-container:not(.uk-navbar-transparent) {
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Footer */
 .uk-section-secondary {
     background: var(--gray-900);
     color: white;
 }
 
-/* Helpers personalizados */
 .leading-tight {
     line-height: 1.25;
 }
@@ -92,4 +83,41 @@ body {
 
 .hover\:scale-105:hover {
     transform: scale(1.05);
+}
+
+h1 {
+    font-size: var(--uk-heading-large);
+    color: var(--primary-600);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+}
+
+h1 span {
+    color: var(--primary-500);
+}
+
+.uk-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.uk-section-large {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (max-width: 640px) {
+    .uk-navbar-nav {
+        display: none;
+        /* Will implement mobile menu */
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }

@@ -4,30 +4,30 @@
 	let menuOpen = false;
 
 	const navLinks = [
-		{ href: '/servicos', text: 'Serviços em Osório' },
-		{ href: '/sobre', text: 'Sobre Nossa Agência' },
-		{ href: '/metodo', text: 'Método de Trabalho' }
+		{ href: '/servicos', text: 'Serviços' },
+		{ href: '/sobre', text: 'Sobre' },
+		{ href: '/metodo', text: 'Método' }
 	];
 </script>
 
-<header class="uk-navbar-container" uk-navbar>
-	<div class="uk-navbar-left">
-		<a href="/" class="uk-navbar-item uk-logo">
-			<Logo width={40} />
-			<span class="uk-margin-small-left uk-text-bold">A. Caruso</span>
-			<span class="uk-visible@m uk-margin-small-left uk-text-muted">Agência Digital em Osório</span>
-		</a>
-	</div>
-	<div class="uk-navbar-right">
-		<ul class="uk-navbar-nav">
-			{#each navLinks as link}
-				<li class="uk-active:border-bottom uk-border-primary">
-					<a href={link.href}>{link.text}</a>
+<div class="uk-container">
+	<nav class="uk-navbar-container uk-navbar">
+		<div class="uk-navbar-left">
+			<a href="/" class="uk-navbar-item uk-logo">
+				<Logo width={40} />
+			</a>
+		</div>
+		<div class="uk-navbar-right">
+			<ul class="uk-navbar-nav">
+				{#each navLinks as link}
+					<li class="hover:border-b-2 hover:border-primary-600 transition">
+						<a href={link.href} class="px-4 py-6">{link.text}</a>
+					</li>
+				{/each}
+				<li>
+					<a href="/contato" class="uk-button ml-4"> Contato </a>
 				</li>
-			{/each}
-			<li>
-				<a href="/contato" class="uk-button uk-button-primary uk-margin-left"> Contato </a>
-			</li>
-		</ul>
-	</div>
-</header>
+			</ul>
+		</div>
+	</nav>
+</div>
