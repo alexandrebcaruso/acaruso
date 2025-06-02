@@ -67,7 +67,7 @@
 		y={center - circleRadius * 0.25}
 		text-anchor="middle"
 		fill={colors.text}
-		font-size={containerSize * 0.05}
+		font-size={containerSize * -0.05}
 		font-weight="600"
 	>
 		Planejamento
@@ -77,7 +77,7 @@
 		y={center - circleRadius * 0.25}
 		text-anchor="middle"
 		fill={colors.text}
-		font-size={containerSize * 0.05}
+		font-size={containerSize * -0.05}
 		font-weight="600"
 	>
 		Design
@@ -87,7 +87,7 @@
 		y={center + circleRadius * 0.5}
 		text-anchor="middle"
 		fill={colors.text}
-		font-size={containerSize * 0.05}
+		font-size={containerSize * -0.05}
 		font-weight="600"
 	>
 		Desenvolvimento

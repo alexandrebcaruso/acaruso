@@ -1,31 +1,41 @@
-<!-- src/lib/components/ServiceCard.svelte -->
 <script lang="ts">
-    export let service: {
-      title: string;
-      description: string;
-      icon: string;
-      href: string;
-    };
-  </script>
-  
-  <a href={service.href} class="card">
-    <div class="icon">{service.icon}</div>
-    <h3>{service.title}</h3>
-    <p>{service.description}</p>
-  </a>
-  
-  <style>
-    .card {
-      border: 1px solid #e5e7eb;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-  </style>
+	export let title: string;
+	export let icon: string;
+	export let image: string;
+	export let features: string[];
+	export let stats: Array<{ value: string; label: string }>;
+	export let ctaText: string;
+</script>
+
+<div class="uk-card uk-card-default uk-grid-collapse uk-margin" uk-grid>
+	<div class="uk-width-1-3@m">
+		<img src={image} alt={title} class="uk-height-1-1 uk-object-cover" />
+	</div>
+	<div class="uk-width-2-3@m">
+		<div class="uk-card-body">
+			<div class="uk-text-large" style="font-size: 2rem;">{icon}</div>
+			<h2 class="uk-card-title">{title}</h2>
+
+			<ul class="uk-list uk-list-bullet">
+				{#each features as feature}
+					<li>{@html feature}</li>
+				{/each}
+			</ul>
+
+			<div class="uk-grid-small uk-child-width-1-2@m uk-margin-top" uk-grid>
+				{#each stats as stat}
+					<div>
+						<div class="uk-card uk-card-primary uk-card-body uk-text-center">
+							<div class="uk-text-large">{stat.value}</div>
+							<div class="uk-text-small">{stat.label}</div>
+						</div>
+					</div>
+				{/each}
+			</div>
+
+			<button class="uk-button uk-button-primary uk-margin-top">
+				{ctaText} →
+			</button>
+		</div>
+	</div>
+</div>

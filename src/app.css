@@ -26,20 +26,53 @@
     /* Rosa */
 }
 
-.uk-light {
-    --primary-color: var(--primary-600);
-    --primary-hover-color: var(--primary-700);
+/* Ensure full viewport behavior */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     color: var(--gray-900);
+    position: relative;
+}
+
+/* Navbar positioning */
+.uk-navbar-container {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    background: transparent !important;
+}
+
+.text-primary {
+    color: var(--primary-500) !important;
+}
+
+.content-below-banner {
+    transition: margin-top 0.3s ease;
+}
+
+.uk-light {
+    --primary-color: var(--primary-600);
+    --primary-hover-color: var(--primary-700);
 }
 
 .uk-container {
     max-width: 1280px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.uk-navbar-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent !important;
 }
 
 .uk-button-primary {
@@ -111,6 +144,46 @@ h1 span {
     gap: 2rem;
 }
 
+.workflow-steps>div {
+    text-align: center;
+    padding: 20px;
+    border-right: 1px dashed var(--gray-300);
+}
+
+.workflow-steps>div:last-child {
+    border-right: none;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-600);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+/* Testimonial styling */
+.uk-text-italic {
+    position: relative;
+    padding-left: 30px;
+}
+
+.uk-text-italic::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -15px;
+    font-size: 3rem;
+    color: var(--primary-500);
+    opacity: 0.2;
+}
+
 @media (max-width: 640px) {
     .uk-navbar-nav {
         display: none;
@@ -119,5 +192,14 @@ h1 span {
 
     .services-grid {
         grid-template-columns: 1fr;
+    }
+
+    .uk-heading-large {
+        font-size: 2.25rem;
+        line-height: 1.2;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
     }
 }

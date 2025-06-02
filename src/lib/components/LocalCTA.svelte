@@ -5,7 +5,7 @@
 	export let className = '';
 </script>
 
-<div class="uk-text-center uk-margin">
+<div class="uk-text-center">
 	<p class="uk-text-lead">{text}</p>
 	<button class={`uk-button uk-button-primary ${className}`}>
 		{buttonText}
