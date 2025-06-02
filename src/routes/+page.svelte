@@ -1,6 +1,7 @@
+<!-- src/routes/+page.svelte -->
 <script lang="ts">
 	import LocalCTA from '$lib/components/LocalCTA.svelte';
-	import BannerImage from '$lib/assets/homepage-banner.jpeg';
+	import BannerImage from '$lib/assets/images/homepage-banner.jpeg';
 </script>
 
 <div class="banner-image" style="background-image: url('{BannerImage}')" aria-hidden="true"></div>

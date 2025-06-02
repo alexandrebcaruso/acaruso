@@ -1,0 +1,53 @@
+/* src/styles/overrides.css */
+.uk-button-primary {
+    background: var(--primary-600) !important;
+    color: white;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.uk-button-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.uk-card {
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uk-card-primary {
+	background: var(--primary-600) !important;
+}
+
+.uk-card-default {
+	background: var(--custom-background) !important;
+	color: var(--custom-text) !important;
+}
+
+.uk-card-body {
+	color: var(--custom-text) !important;
+}
+
+.uk-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.uk-active > a {
+    color: var(--primary-600) !important;
+    border-bottom: 2px solid var(--primary-600);
+}
+
+.uk-input:focus, 
+.uk-select:focus, 
+.uk-textarea:focus {
+    border-color: var(--primary-600);
+    box-shadow: 0 0 0 2px rgba(170, 0, 0, 0.1);
+}

@@ -5,7 +5,6 @@
 	import Footer from '$lib/Footer.svelte';
 	import Chatbot from '$lib/Chatbot.svelte';
 
-	import 'uikit/dist/css/uikit.min.css';
 	import UIkit from 'uikit';
 	import Icons from 'uikit/dist/js/uikit-icons';
 	import { onMount } from 'svelte';
@@ -22,8 +21,8 @@
 </svelte:head>
 
 <div class="layout">
-	<Header />
 	<div class="main-content">
+		<Header />
 		<slot />
 	</div>
 	<Footer />
@@ -31,16 +30,12 @@
 </div>
 
 <style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-		overflow-x: hidden;
-	}
 	.layout {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
 	}
+
 	.main-content {
 		flex: 1;
 		position: relative;

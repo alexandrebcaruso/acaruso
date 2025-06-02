@@ -3,10 +3,10 @@
 	import LambdaPillars from '$lib/components/LambdaPillars.svelte';
 	import LocalCTA from '$lib/components/LocalCTA.svelte';
 
-	import DiagnosticoImg from '$lib/assets/diagnostico-local.png';
-	import SolucaoImg from '$lib/assets/solucao-personalizada.png';
-	// import ResultadosImg from '$lib/assets/resultados-mensuraveis.png';
-	import ProcessosImg from '$lib/assets/processo.png';
+	import DiagnosticoImg from '$lib/assets/images/diagnostico-local.png';
+	import SolucaoImg from '$lib/assets/images/solucao-personalizada.png';
+	// import ResultadosImg from '$lib/assets/images/resultados-mensuraveis.png';
+	import ProcessosImg from '$lib/assets/images/processo.png';
 
 	export const load = () => {
 		return {

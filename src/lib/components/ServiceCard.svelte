@@ -1,15 +1,15 @@
 <script lang="ts">
 	export let title: string;
-	export let icon: string;
-	export let image: string;
 	export let features: string[];
 	export let stats: Array<{ value: string; label: string }>;
 	export let ctaText: string;
+	export let icon: string | null;
+	export let image: string | null;
 </script>
 
 <div class="uk-card uk-card-default uk-grid-collapse uk-margin" uk-grid>
 	<div class="uk-width-1-3@m">
-		<img src={image} alt={title} class="uk-height-1-1 uk-object-cover" />
+		<img src={image && image} alt={title} class="uk-height-1-1 uk-object-cover" />
 	</div>
 	<div class="uk-width-2-3@m">
 		<div class="uk-card-body">
