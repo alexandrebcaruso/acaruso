@@ -228,10 +228,13 @@
 	</div>
 </div>
 
-<LocalCTA
-	text="Pronto para transformar seu negócio digital em Osório?"
-	buttonText="Falar com Especialista"
-/>
+
+<div class="main-heading">
+	<LocalCTA
+		text="Pronto para transformar seu negócio digital em Osório?"
+		buttonText="Falar com Especialista"
+	/>
+</div>
 
 <style>
 	.uk-button-white {
@@ -247,5 +250,12 @@
 
 	.uk-section-secondary .text-primary {
 		color: var(--primary-500) !important;
+	}
+
+	.main-heading {
+		height: 40vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 </style>

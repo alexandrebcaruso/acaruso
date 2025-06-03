@@ -210,7 +210,6 @@
 </div>
 
 <style>
-
 	.main-heading {
 		height: 40vh;
 		display: flex;
