@@ -12,6 +12,18 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.uk-text-primary {
+    color: var(--primary-600) !important;
+}
+
+.uk-background-primary {
+    background-color: var(--primary-600) !important;
+}
+
+.uk-card-default .uk-card-title {
+    color: var(--white) !important;
+}
+
 .uk-card {
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;

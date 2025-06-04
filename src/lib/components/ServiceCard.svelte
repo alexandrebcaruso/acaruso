@@ -7,7 +7,7 @@
 	export let image: string | null;
 </script>
 
-<div class="uk-card uk-card-default uk-grid-collapse uk-margin" uk-grid>
+<div class="uk-card uk-card-default uk-grid-collapse uk-margin uk-grid">
 	<div class="uk-width-1-3@m">
 		<img src={image && image} alt={title} class="uk-height-1-1 uk-object-cover" />
 	</div>
@@ -22,20 +22,36 @@
 				{/each}
 			</ul>
 
-			<div class="uk-grid-small uk-child-width-1-2@m uk-margin-top" uk-grid>
+			<div class="uk-grid-small uk-child-width-1-2@m uk-margin-top uk-grid">
 				{#each stats as stat}
 					<div>
-						<div class="uk-card uk-card-primary uk-card-body uk-text-center">
+						<div class="uk-card uk-card-body uk-text-center">
 							<div class="uk-text-large">{stat.value}</div>
 							<div class="uk-text-small">{stat.label}</div>
 						</div>
 					</div>
 				{/each}
 			</div>
-
+			<div class="center">
 			<button class="uk-button uk-button-primary uk-margin-top">
 				{ctaText} →
 			</button>
+			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.uk-card {
+		color: var(--primary-600) !important;
+		background-color: none;
+	}
+
+	.uk-card-title {
+		margin-top: 0;
+	}
+
+	.center {
+		text-align: center;
+	}
+</style>

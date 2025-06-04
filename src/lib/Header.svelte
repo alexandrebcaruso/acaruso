@@ -62,12 +62,12 @@
 <nav bind:this={navElement} class:scrolled class:menu-open={menuOpen}>
 	<div class="uk-container">
 		<div class="uk-navbar">
-			<div class="uk-navbar-left">
-				<a href="/" class="uk-navbar-item uk-logo" on:click={closeMenu}>
+			<a href="/" class="uk-navbar-item uk-logo" on:click={closeMenu}>
+				<div class="uk-navbar-left">
 					<Logo width={40} />
-				</a>
-			</div>
-			Agência <span class="text-primary">Caruso</span>
+				</div>
+				<span style="font-family: 'Inter', -apple-system, sans-serif;">Agência <span class="text-primary">Caruso</span></span>
+			</a>
 			<!-- Desktop Navigation -->
 			<div class="uk-navbar-right hidden md:block">
 				<ul class="uk-navbar-nav">

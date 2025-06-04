@@ -4,8 +4,8 @@
 
 	// Social media links (replace with actual URLs)
 	const socialLinks = [
-		{ platform: 'twitter', url: 'https://twitter.com/acaruso' },
-		{ platform: 'instagram', url: 'https://instagram.com/acaruso' },
+		// { platform: 'twitter', url: 'https://twitter.com/acaruso' },
+		// { platform: 'instagram', url: 'https://instagram.com/acaruso' },
 		{ platform: 'linkedin', url: 'https://www.linkedin.com/in/alexandrebcaruso/' }
 	];
 </script>

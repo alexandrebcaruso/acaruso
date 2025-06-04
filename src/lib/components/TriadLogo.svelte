@@ -99,7 +99,4 @@
 		max-width: 100%;
 		height: auto;
 	}
-	.triad-logo__lambda {
-		pointer-events: none;
-	}
 </style>

@@ -7,10 +7,6 @@
 	import DesignImg from '$lib/assets/images/design-grafico-osorio.png';
 	import DevImg from '$lib/assets/images/desenvolvimento-web.png';
 
-	// Client logos for testimonials
-	// import ClientLogo1 from '$lib/assets/images/clientes/restaurante-gaucho.png';
-	// import ClientLogo2 from '$lib/assets/images/clientes/clinica-saude.png';
-	// import ClientLogo3 from '$lib/assets/images/clientes/material-construcao.png';
 </script>
 
 <div class="uk-container uk-margin-large-top">
@@ -141,56 +137,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Testimonials -->
-	<!-- <div class="uk-section">
-    <div class="uk-container">
-      <h2 class="uk-heading-medium uk-text-center">
-        Resultados <span class="text-primary">Reais em Osório</span>
-      </h2>
-      
-      <div class="uk-grid-match uk-child-width-1-3@m uk-margin-top uk-grid">
-        <div>
-          <div class="uk-card uk-card-body uk-text-center">
-            <img src={ClientLogo1} alt="Restaurante Gaúcho" class="uk-border-circle uk-margin-auto" width="80" height="80">
-            <p class="uk-text-italic uk-margin-top">
-              "A A. Caruso triplicou nosso movimento com campanhas locais no Instagram!"
-            </p>
-            <div class="uk-margin-top">
-              <strong>Carlos Mendes</strong>
-              <div class="uk-text-meta">Restaurante Gaúcho - Centro</div>
-            </div>
-          </div>
-        </div>
-        
-        <div>
-          <div class="uk-card uk-card-body uk-text-center">
-            <img src={ClientLogo2} alt="Clínica Saúde" class="uk-border-circle uk-margin-auto" width="80" height="80">
-            <p class="uk-text-italic uk-margin-top">
-              "Nosso site agora aparece no topo do Google para consultas em Osório."
-            </p>
-            <div class="uk-margin-top">
-              <strong>Dra. Juliana Porto</strong>
-              <div class="uk-text-meta">Clínica Saúde Total</div>
-            </div>
-          </div>
-        </div>
-        
-        <div>
-          <div class="uk-card uk-card-body uk-text-center">
-            <img src={ClientLogo3} alt="Materiais Construção" class="uk-border-circle uk-margin-auto" width="80" height="80">
-            <p class="uk-text-italic uk-margin-top">
-              "O sistema de orçamentos online aumentou nossas vendas em 120%."
-            </p>
-            <div class="uk-margin-top">
-              <strong>Roberto Silva</strong>
-              <div class="uk-text-meta">Materiais Construção & Cia</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
 	<!-- Diferenciais -->
 	<div class="uk-section uk-section-secondary">

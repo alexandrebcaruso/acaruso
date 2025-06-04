@@ -39,7 +39,7 @@
 				<h2>Alexandre B. Caruso</h2>
 				<p class="uk-text-meta">Fundador & Especialista em Estratégias Digitais</p>
 				
-				<div class="uk-grid-small uk-child-width-1-3@m uk-margin-medium-top" uk-grid>
+				<div class="uk-grid-small uk-child-width-1-3@m uk-margin-medium-top uk-grid">
 					<div>
 						<div class="uk-card uk-card-default uk-card-body">
 							<h3 class="uk-card-title">Web</h3>
@@ -59,34 +59,34 @@
 						</div>
 					</div>
 				</div>
-				
-				<p class="uk-margin-medium-top">
-					Publicitário formado pela PUCRS com 10+ anos criando soluções digitais para empresas. 
-					Ajudo negócios de Osório a se destacarem online com estratégias práticas e acessíveis.
-				</p>
-				
-				<a 
-					href="https://www.linkedin.com/in/alexandrebcaruso" 
-					target="_blank" 
-					class="uk-button uk-button-text uk-text-primary uk-margin-top"
-				>
-					Ver experiência completa no LinkedIn →
-				</a>
+				<div class="main-heading">
+					<p class="uk-margin-medium-top">
+						Publicitário formado pela PUCRS com 10+ anos criando soluções digitais para empresas. 
+						Ajudo negócios de Osório a se destacarem online com estratégias práticas e acessíveis.
+					</p>
+					<a 
+						href="https://www.linkedin.com/in/alexandrebcaruso" 
+						target="_blank" 
+						class="uk-button uk-button-text uk-text-primary uk-margin-top"
+					>
+						Ver experiência completa no LinkedIn →
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Services Focus -->
-	<div class="uk-section uk-section-muted">
+	<div class="uk-section">
 		<div class="uk-container">
 			<h2 class="uk-heading-medium uk-text-center uk-margin-bottom">
-				O que <span class="text-primary">oferecemos</span>
+				O que <span class="text-primary">te oferecemos</span>
 			</h2>
 			
-			<div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+			<div class="uk-grid-match uk-child-width-1-3@m uk-grid">
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-text-center">
-						<div class="uk-text-primary" uk-icon="icon: world; ratio: 2"></div>
+						<div class="uk-text-primary" data-uk-icon="icon: world; ratio: 2"></div>
 						<h3 class="uk-card-title">Sites Profissionais</h3>
 						<ul class="uk-list uk-list-divider uk-text-left">
 							<li>Carregamento em menos de 2 segundos</li>
@@ -98,7 +98,7 @@
 				
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-text-center">
-						<div class="uk-text-primary" uk-icon="icon: social; ratio: 2"></div>
+						<div class="uk-text-primary" data-uk-icon="icon: social; ratio: 2"></div>
 						<h3 class="uk-card-title">Marketing Digital</h3>
 						<ul class="uk-list uk-list-divider uk-text-left">
 							<li>Gestão de Google Meu Negócio</li>
@@ -110,7 +110,7 @@
 				
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-text-center">
-						<div class="uk-text-primary" uk-icon="icon: paint-bucket; ratio: 2"></div>
+						<div class="uk-text-primary" data-uk-icon="icon: paint-bucket; ratio: 2"></div>
 						<h3 class="uk-card-title">Identidade Visual</h3>
 						<ul class="uk-list uk-list-divider uk-text-left">
 							<li>Logotipos com identidade regional</li>
@@ -133,24 +133,24 @@
 				Entendemos os desafios específicos de negócios na região:
 			</p>
 			
-			<div class="uk-grid-small uk-child-width-1-3@m uk-margin-medium-top" uk-grid>
+			<div class="uk-grid-small uk-child-width-1-3@m uk-margin-medium-top uk-grid">
 				<div>
 					<div class="uk-card uk-card-body">
-						<span class="uk-text-primary" uk-icon="icon: credit-card; ratio: 1.5"></span>
+						<span class="uk-text-primary" data-uk-icon="icon: credit-card; ratio: 1.5"></span>
 						<h3 class="uk-margin-small-top">Orçamento</h3>
 						<p>Planos a partir de R$499/mês</p>
 					</div>
 				</div>
 				<div>
 					<div class="uk-card uk-card-body">
-						<span class="uk-text-primary" uk-icon="icon: comments; ratio: 1.5"></span>
+						<span class="uk-text-primary" data-uk-icon="icon: comments; ratio: 1.5"></span>
 						<h3 class="uk-margin-small-top">Atendimento</h3>
 						<p>Suporte em português claro</p>
 					</div>
 				</div>
 				<div>
 					<div class="uk-card uk-card-body">
-						<span class="uk-text-primary" uk-icon="icon: location; ratio: 1.5"></span>
+						<span class="uk-text-primary" data-uk-icon="icon: location; ratio: 1.5"></span>
 						<h3 class="uk-margin-small-top">Presencial</h3>
 						<p>Reuniões na sua empresa</p>
 					</div>
@@ -173,5 +173,10 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+	}
+
+	.main-heading .uk-button-text.uk-text-primary,
+	.uk-card .uk-text-primary {
+		color: var(--primary-600) !important;
 	}
 </style>
