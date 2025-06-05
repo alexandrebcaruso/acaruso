@@ -38,7 +38,7 @@
 			{ value: '+120%', label: 'Conversão em visitas' },
 			{ value: 'Top 3', label: 'No Google para sua área' }
 		]}
-		ctaText={null}
+		ctas={[]}
 	/>
 
 	<div class="uk-grid-match uk-child-width-1-3@m uk-margin-large-top uk-grid">
@@ -71,3 +71,9 @@
 		/>
 	</div>
 </div>
+
+<style>
+	.uk-card .uk-text-primary {
+		color: var(--primary-600) !important;
+	}
+</style>

@@ -38,7 +38,7 @@
 			{ value: '+80%', label: 'Reconhecimento de marca' },
 			{ value: '2.5x', label: 'Mais compartilhamentos' }
 		]}
-		ctaText={null}
+		ctas={[]}
 	/>
 
 	<div class="uk-section uk-section-muted uk-margin-large-top">
@@ -75,3 +75,9 @@
 		/>
 	</div>	
 </div>
+
+<style>
+	.uk-card .uk-text-primary {
+		color: var(--primary-600) !important;
+	}
+</style>
