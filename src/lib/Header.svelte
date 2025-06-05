@@ -44,7 +44,7 @@
 
 	function checkMobile() {
 		if (browser) {
-			isMobile = window.innerWidth < 768; // Standard md breakpoint (768px)
+			isMobile = window.innerWidth < 768;
 		}
 	}
 
@@ -69,7 +69,7 @@
 				<span style="font-family: 'Inter', -apple-system, sans-serif;">Agência <span class="text-primary">Caruso</span></span>
 			</a>
 			<!-- Desktop Navigation -->
-			<div class="uk-navbar-right hidden md:block">
+			<div class="uk-navbar-right uk-visible@s">
 				<ul class="uk-navbar-nav">
 					{#each navLinks as link}
 						<li class="hover:border-b-2 hover:border-primary-600 transition">
@@ -85,7 +85,7 @@
 			</div>
 
 			<!-- Mobile Menu Button -->
-			<div class="uk-navbar-right block md:hidden">
+			<div class="uk-navbar-right block uk-hidden@s">
 				<button
 					class="uk-button uk-button-text menu-toggle"
 					on:click={toggleMenu}
@@ -190,15 +190,4 @@
 		align-items: center;
 	}
 
-	@media (min-width: 768px) {
-		.mobile-menu-overlay {
-			display: none;
-		}		
-	}
-
-	@media (max-width: 767px) {
-		.uk-navbar-nav {
-			display: none;
-		}
-	}
 </style>
