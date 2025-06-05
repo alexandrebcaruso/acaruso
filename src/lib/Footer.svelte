@@ -24,7 +24,6 @@
 				<ul class="uk-list">
 					<li>Email: contato@acaruso.com</li>
 					<li>Telefone: (51) 9 9894 6871</li>
-					<li>Av. Getúlio Vargas, 123</li>
 				</ul>
 			</div>
 			<div class="uk-width-1-3@m">

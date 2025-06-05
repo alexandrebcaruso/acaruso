@@ -142,7 +142,7 @@
 	<div class="uk-section uk-section-secondary">
 		<div class="uk-container">
 			<h2 class="uk-heading-medium uk-text-center uk-light">
-				Porque Escolher a <span class="text-primary">A. Caruso</span>
+				Porque Escolher <span class="text-primary">A. Caruso</span>
 			</h2>
 
 			<div class="uk-grid-match uk-child-width-1-3@m uk-margin-top uk-grid">
