@@ -21,13 +21,6 @@
 		align-content: center;
 	}
 
-	.main-heading {
-		height: 40vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	
 	.text-heading { 
 		font-size: clamp(2rem, 5vw, 3.5rem);
 		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);

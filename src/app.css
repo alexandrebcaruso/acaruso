@@ -19,11 +19,11 @@ body {
     line-height: 1.5;
 }
 
-/* Mobile-First Layout */
-.container {
-    width: 100%;
-    padding: 0 var(--space-sm);
-    margin: 0 auto;
+.main-heading {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Typography */
@@ -47,49 +47,8 @@ h3 {
     color: var(--primary-600);
 }
 
-/* UIkit Overrides */
-.uk-button-primary {
-    background: var(--primary-600);
-    color: white;
-    border: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.uk-button-primary:hover {
-    background: var(--primary-700);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.uk-card {
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.uk-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.uk-navbar-container:not(.uk-navbar-transparent) {
-    background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* Navigation */
-.uk-navbar-container {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: transparent !important;
-}
 
 /* Components */
-.content-below-banner {
-    transition: margin-top 0.3s ease;
-}
-
 .workflow-steps>div {
     text-align: center;
     padding: var(--space-sm);
@@ -131,27 +90,12 @@ h3 {
 
 /* Responsive Design */
 @media (min-width: 640px) {
-    .container {
-        max-width: var(--breakpoint-sm);
-        padding: 0 var(--space-md);
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* break point rules placeholder */
 }
 
 @media (min-width: 768px) {
-    .container {
-        max-width: var(--breakpoint-md);
-    }
-
     h1 {
         font-size: var(--text-5xl);
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
     }
 
     .grid {
@@ -160,16 +104,10 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-    .container {
-        max-width: var(--breakpoint-lg);
-    }
+    /* break point rules placeholder */
 }
 
 @media (min-width: 1280px) {
-    .container {
-        max-width: var(--breakpoint-xl);
-    }
-
     .uk-container {
         max-width: var(--breakpoint-xl);
     }

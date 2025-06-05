@@ -38,7 +38,10 @@
 				{ value: '+150%', label: 'Visitas a lojas físicas' },
 				{ value: '3x', label: 'Mais leads qualificados' }
 			]}
-			ctaText="Quer mais clientes locais?"
+			ctas={[
+				{ text: "Quer mais clientes locais?", href: "/contato", variant: 'primary' },
+				{ text: "Saiba mais", href: "/servicos/marketing-digital", variant: 'secondary' }
+			]}
 		/>
 
 		<!-- Design Gráfico -->
@@ -56,7 +59,10 @@
 				{ value: '+80%', label: 'Reconhecimento de marca' },
 				{ value: '2.5x', label: 'Mais compartilhamentos' }
 			]}
-			ctaText="Precisa de um design autêntico?"
+			ctas={[
+				{ text: "Precisa de um design autêntico?", href: "/contato", variant: 'primary' },
+				{ text: "Saiba mais", href: "/servicos/design", variant: 'secondary' }
+			]}
 		/>
 
 		<!-- Desenvolvimento Web -->
@@ -74,7 +80,10 @@
 				{ value: '+120%', label: 'Conversão em vendas' },
 				{ value: 'Top 3', label: 'No Google para sua região' }
 			]}
-			ctaText="Seu site não aparece no Google?"
+			ctas={[
+				{ text: "Sua empresa não aparece no Google?", href: "/contato", variant: 'primary' },
+				{ text: "Saiba mais", href: "/servicos/desenvolvimento", variant: 'secondary' }
+			]}
 		/>
 	</div>
 
@@ -196,12 +205,5 @@
 
 	.uk-section-secondary .text-primary {
 		color: var(--primary-500) !important;
-	}
-
-	.main-heading {
-		height: 40vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 	}
 </style>

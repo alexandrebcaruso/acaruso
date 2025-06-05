@@ -129,13 +129,12 @@
 						<li><strong>Otimização contínua</strong> - Ajustamos estratégias baseado em dados</li>
 						<li><strong>Treinamento de equipe</strong> - Capacitamos sua equipe em Osório</li>
 					</ul>
-
 				</div>
 			</div>
 		</div>
 	</div>
-<!-- Depoimentos de Clientes -->
-<!-- <div class="uk-section uk-section-muted">
+	<!-- Depoimentos de Clientes -->
+	<!-- <div class="uk-section uk-section-muted">
   <div class="uk-container">
     <h2 class="uk-heading-medium uk-text-center">Histórias de Sucesso em Osório</h2>
     <div class="uk-grid-match uk-child-width-1-3@m uk-grid">
@@ -176,44 +175,35 @@
   </div>
 </div> -->
 
-<!-- Fluxo de Trabalho -->
-<div class="uk-section">
-  <div class="uk-container">
-    <h2 class="uk-heading-medium uk-text-center">Como Funciona Nosso Processo</h2>
-    <div class="uk-grid-collapse uk-child-width-1-4@m workflow-steps uk-grid">
-      <div>
-        <div class="step-number">1</div>
-        <h3>Diagnóstico Inicial</h3>
-        <p>Reunião em Osório para entender seu negócio</p>
-      </div>
-      <div>
-        <div class="step-number">2</div>
-        <h3>Plano Estratégico</h3>
-        <p>Desenvolvimento da solução personalizada</p>
-      </div>
-      <div>
-        <div class="step-number">3</div>
-        <h3>Implementação</h3>
-        <p>Execução com acompanhamento próximo</p>
-      </div>
-      <div>
-        <div class="step-number">4</div>
-        <h3>Otimização Contínua</h3>
-        <p>Ajustes baseados em resultados reais</p>
-      </div>
-    </div>
-  </div>
+	<!-- Fluxo de Trabalho -->
+	<div class="uk-section">
+		<div class="uk-container">
+			<h2 class="uk-heading-medium uk-text-center">Como Funciona Nosso Processo</h2>
+			<div class="uk-grid-collapse uk-child-width-1-4@m workflow-steps uk-grid">
+				<div>
+					<div class="step-number">1</div>
+					<h3>Diagnóstico Inicial</h3>
+					<p>Reunião em Osório para entender seu negócio</p>
+				</div>
+				<div>
+					<div class="step-number">2</div>
+					<h3>Plano Estratégico</h3>
+					<p>Desenvolvimento da solução personalizada</p>
+				</div>
+				<div>
+					<div class="step-number">3</div>
+					<h3>Implementação</h3>
+					<p>Execução com acompanhamento próximo</p>
+				</div>
+				<div>
+					<div class="step-number">4</div>
+					<h3>Otimização Contínua</h3>
+					<p>Ajustes baseados em resultados reais</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-heading">
+		<LocalCTA text="Quer aplicar esse método no seu negócio?" buttonText="Agendar Consultoria" />
+	</div>
 </div>
-<div class="main-heading">
-	<LocalCTA text="Quer aplicar esse método no seu negócio?" buttonText="Agendar Consultoria" />
-</div>
-</div>
-
-<style>
-	.main-heading {
-		height: 40vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-</style>

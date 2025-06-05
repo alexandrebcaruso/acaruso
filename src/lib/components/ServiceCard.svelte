@@ -2,7 +2,7 @@
 	export let title: string;
 	export let features: string[];
 	export let stats: Array<{ value: string; label: string }>;
-	export let ctaText: string;
+	export let ctas: Array<{ text: string; href: string; variant?: 'primary' | 'secondary' }> = [];
 	export let icon: string | null;
 	export let image: string | null;
 </script>
@@ -32,10 +32,15 @@
 					</div>
 				{/each}
 			</div>
-			<div class="center">
-			<button class="uk-button uk-button-primary uk-margin-top">
-				{ctaText} →
-			</button>
+			<div class="cta-container">
+				{#each ctas as cta}
+					<a 
+						href={cta.href} 
+						class="uk-button uk-margin-top {cta.variant === 'secondary' ? 'uk-button-secondary' : 'uk-button-primary'}"
+					>
+						{cta.text} →
+					</a>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -51,7 +56,17 @@
 		margin-top: 0;
 	}
 
-	.center {
-		text-align: center;
+	.cta-container {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 640px) {
+		.cta-container {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 </style>

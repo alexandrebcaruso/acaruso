@@ -168,13 +168,6 @@
 </div>
 
 <style>
-	.main-heading {
-		height: 40vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
 	.main-heading .uk-button-text.uk-text-primary,
 	.uk-card .uk-text-primary {
 		color: var(--primary-600) !important;
