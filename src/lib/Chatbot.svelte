@@ -1,66 +1,181 @@
-<!-- src/lib/Chatbot.svelte -->
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { toast } from '@zerodevx/svelte-toast';
+
+	// Define message type
+	type MessageRole = 'user' | 'assistant' | 'system';
+	interface ChatMessage {
+		id: string;
+		role: MessageRole;
+		content: string;
+		quick_replies?: string[];
+		timestamp: Date;
+	}
 
 	// Chat state
 	let open = false;
 	let userInput = '';
 	let isLoading = false;
-	let showLeadConfirmation = false;
+	let showLeadForm = false;
 	let currentLead: any = null;
-	let messages: Array<{
-		id: string;
-		role: 'user' | 'assistant' | 'system';
-		content: string;
-		quick_replies?: string[];
-		timestamp: Date;
-	}> = [];
+	let messages: ChatMessage[] = [];
+	let conversationId: string | null = null;
+	
+	// API configuration
+	const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 	// Initialize with welcome message
 	onMount(() => {
-		addBotMessage('Olá! Sou o assistente da Agência Caruso. Como posso ajudar seu negócio hoje?', [
-			'Solicitar Orçamento',
-			'Dúvidas Gerais',
-			'Consultoria em Marketing Digital',
-			'Outros'
-		]);
+		resetToInitialState();
 	});
-
-	// API configuration
-	const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001';
 
 	// Message functions
 	function addBotMessage(content: string, quickReplies?: string[]) {
-		messages = [
-			...messages,
-			{
-				id: crypto.randomUUID(),
-				role: 'assistant',
-				content,
-				quick_replies: quickReplies,
-				timestamp: new Date()
-			}
-		];
+		const newMessage: ChatMessage = {
+			id: crypto.randomUUID(),
+			role: 'assistant',
+			content,
+			quick_replies: quickReplies,
+			timestamp: new Date()
+		};
+		messages = [...messages, newMessage];
+		scrollToBottom();
 	}
 
 	function addUserMessage(content: string) {
-		messages = [
-			...messages,
-			{
-				id: crypto.randomUUID(),
-				role: 'user',
-				content,
-				timestamp: new Date()
-			}
-		];
+		const newMessage: ChatMessage = {
+			id: crypto.randomUUID(),
+			role: 'user',
+			content,
+			timestamp: new Date()
+		};
+		messages = [...messages, newMessage];
+		scrollToBottom();
 	}
 
-	// Handle functions
-	async function handleSend() { }
-	async function saveLead() { }
-	function scrollToBottom() { }
-	function formatMessageContent(content: string) { }
+	// Handle user input
+	async function handleSend() {
+		if (!userInput.trim()) return;
+		
+		addUserMessage(userInput);
+		const message = userInput;
+		userInput = '';
+		isLoading = true;
+		
+		try {
+			// Send message to backend API
+			const response = await fetch(`${API_URL}/chat`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					conversation_id: conversationId,
+					message
+				})
+			});
+			
+			if (!response.ok) throw new Error('Failed to get response from chatbot');
+			
+			const result = await response.json();
+			
+			// Update conversation ID if new one was created
+			if (result.conversation_id) {
+				conversationId = result.conversation_id;
+			}
+			
+			// Add bot response to messages
+			addBotMessage(result.reply, result.quick_replies);
+			
+			// Handle form display if needed
+			if (result.show_lead_form) {
+				handleShowLeadForm(result.lead_form_service || 'Serviço');
+			}
+		} catch (error) {
+			console.error('Chat error:', error);
+			addBotMessage('Desculpe, estou tendo problemas técnicos. Por favor, tente novamente mais tarde.');
+		} finally {
+			isLoading = false;
+		}
+	}
+	
+	function resetToInitialState() {
+		// Clear conversation ID to start fresh
+		conversationId = null;
+		
+		// Clear messages and add initial greeting
+		messages = [];
+		addBotMessage('Como posso ajudar seu negócio hoje?', [
+			'Solicitar Orçamento',
+			'Dúvidas Gerais',
+			'Consultoria em Marketing Digital',
+			'Outros Serviços'
+		]);
+	}
+	
+	function handleShowLeadForm(service: string) {
+		showLeadForm = true;
+		currentLead = {
+			name: '',
+			email: '',
+			phone: '',
+			service: service,
+			message: `Interesse em ${service}`
+		};
+	}
+	
+	async function saveLead() {
+		if (!currentLead) return;
+		
+		try {
+			const response = await fetch(`${API_URL}/contact`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					...currentLead,
+					region: 'Osório/RS',
+					source: 'chatbot'
+				})
+			});
+			
+			const result = await response.json();
+			
+			if (result.status === 'success') {
+				toast.push('Dados enviados com sucesso! Entraremos em contato em breve.', {
+					theme: { '--toastBackground': '#4CAF50', '--toastColor': 'white' }
+				});
+				addBotMessage('Obrigado! Seus dados foram enviados. Entraremos em contato em breve.');
+			} else {
+				throw new Error(result.message || 'Erro no envio');
+			}
+		} catch (error) {
+			console.error('Save lead error:', error);
+			toast.push('Erro ao enviar dados. Tente novamente ou nos chame no WhatsApp.', {
+				theme: { '--toastBackground': '#F44336', '--toastColor': 'white' }
+			});
+		} finally {
+			showLeadForm = false;
+			currentLead = null;
+			resetToInitialState();
+		}
+	}
+	
+	function scrollToBottom() {
+		setTimeout(() => {
+			const container = document.querySelector('.uk-card-body');
+			if (container) container.scrollTop = container.scrollHeight;
+		}, 100);
+	}
+	
+	function formatMessageContent(content: string) {
+		// Convert newlines to <br> and escape HTML
+		return content
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#039;')
+			.replace(/\n/g, '<br>');
+	}
 </script>
 
 <div class="chatbot-container uk-position-fixed uk-position-bottom-right uk-position-medium">
@@ -79,7 +194,12 @@
 						<p class="uk-text-meta uk-margin-remove-top">Online agora</p>
 					</div>
 					<div class="uk-width-auto">
-						<a aria-label=" " class="uk-icon-link uk-light" href="#" data-uk-icon="close" on:click|preventDefault={() => (open = false)}></a>
+						<button 
+							aria-label="Fechar chat"
+							class="uk-icon-link uk-light" 
+							data-uk-icon="close" 
+							on:click|preventDefault={() => (open = false)}
+						></button>
 					</div>
 				</div>
 			</div>
@@ -129,35 +249,59 @@
 
 			<!-- Input Area -->
 			<div class="uk-card-footer uk-padding-small">
-				{#if showLeadConfirmation}
-					<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
-						<div class="uk-card-body uk-padding-small">
-							<h4 class="uk-card-title uk-margin-remove">Confirmar dados</h4>
-							{#if currentLead?.name}
-								<p class="uk-margin-small"><span class="uk-text-bold">Nome:</span> {currentLead.name}</p>
-							{/if}
-							{#if currentLead?.email}
-								<p class="uk-margin-small"><span class="uk-text-bold">Email:</span> {currentLead.email}</p>
-							{/if}
-							{#if currentLead?.phone}
-								<p class="uk-margin-small"><span class="uk-text-bold">Telefone:</span> {currentLead.phone}</p>
-							{/if}
+				{#if showLeadForm}
+					<div class="lead-form">
+						<div class="uk-margin-small">
+							<input 
+								class="uk-input" 
+								bind:value={currentLead.name} 
+								placeholder="Nome completo" 
+								required
+							/>
 						</div>
-						<div class="uk-card-footer uk-padding-remove-top uk-grid-small uk-child-width-1-2 uk-grid">
+						<div class="uk-grid-small uk-child-width-1-2@s uk-grid">
+							<div>
+								<input 
+									class="uk-input" 
+									type="email" 
+									bind:value={currentLead.email} 
+									placeholder="Email" 
+									required
+								/>
+							</div>
+							<div>
+								<input 
+									class="uk-input" 
+									type="tel" 
+									bind:value={currentLead.phone} 
+									placeholder="Telefone/WhatsApp"
+								/>
+							</div>
+						</div>
+						<div class="uk-margin-small">
+							<textarea 
+								class="uk-textarea" 
+								bind:value={currentLead.message} 
+								rows={2} 
+								placeholder="Mensagem adicional"
+							></textarea>
+						</div>
+						<div class="uk-grid-small uk-child-width-1-2 uk-grid">
 							<div>
 								<button 
-									class="uk-button uk-button-primary uk-button-small uk-width-1-1" 
+									class="uk-button uk-button-primary uk-width-1-1" 
 									on:click={saveLead}
 								>
-									Confirmar
+									Enviar
 								</button>
 							</div>
 							<div>
 								<button 
-									class="uk-button uk-button-default uk-button-small uk-width-1-1"
+									class="uk-button uk-button-default uk-width-1-1"
 									on:click={() => {
-										showLeadConfirmation = false;
+										showLeadForm = false;
 										currentLead = null;
+										resetToInitialState();
 									}}
 								>
 									Cancelar
@@ -203,6 +347,13 @@
 </div>
 
 <style>
+	.lead-form {
+		background: white;
+		padding: 15px;
+		border-radius: 5px;
+		border: 1px solid #e5e5e5;
+	}
+	
 	.chat-toggle {
 		width: 60px; 
 		height: 60px; 
@@ -284,6 +435,10 @@
 		.chat-toggle {
 			bottom: 20px;
 			right: 20px;
+		}
+		
+		.lead-form .uk-grid-small.uk-child-width-1-2\@s.uk-grid > div {
+			width: 100%;
 		}
 	}
 </style>

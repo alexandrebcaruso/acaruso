@@ -42,11 +42,6 @@
 	color: var(--custom-text) !important;
 }
 
-.uk-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
 .uk-navbar-container:not(.uk-navbar-transparent) {
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);

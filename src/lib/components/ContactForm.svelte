@@ -1,9 +1,11 @@
-<!-- src/lib/components/ContactForm.svelte -->
 <script lang="ts">
     import { toast } from '@zerodevx/svelte-toast';
     let isLoading = false;
     let isSuccess = false;
-  
+    
+    // Add API URL from environment
+    const API_URL = import.meta.env.VITE_API_URL || '';
+
     let form = {
         name: '',
         email: '',
@@ -18,7 +20,7 @@
         isLoading = true;
 
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch(`${API_URL}/contact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

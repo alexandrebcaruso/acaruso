@@ -88,7 +88,7 @@
 	</div>
 
 	<!-- Pricing Section -->
-	<div class="uk-section uk-section-muted uk-margin-large-top">
+	<div class="uk-section uk-margin-large-top">
 		<div class="uk-container">
 			<h2 class="uk-heading-medium uk-text-center">
 				Planos <span class="text-primary">Acessíveis para Empresas Locais</span>
